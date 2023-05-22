@@ -23,4 +23,7 @@ public class Gato extends Mamifero {
 	public String toString() {
 		return "pedigri"+isPedigri()+super.toString(); 
 	}
+	public String toFichero() {
+		return super.toFichero()+";"+isPedigri(); 
+	}
 }

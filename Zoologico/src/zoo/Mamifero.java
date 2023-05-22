@@ -24,5 +24,7 @@ public class Mamifero extends Animal {
 	public String toString() {
 		return "gestacion"+getGestacion()+super.toString();
 	} 
-	
+	public String toFichero() {
+		return super.toFichero()+";"+getGestacion();
+	}
 }

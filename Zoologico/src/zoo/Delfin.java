@@ -23,5 +23,8 @@ public class Delfin extends Mamifero{
 	public String toString() {
 		return "cantidadComida"+getCantidadComida()+super.toString(); 
 	}
+	public String toFichero() {
+		return super.toFichero()+";"+getCantidadComida(); 
+	}
 	
 }

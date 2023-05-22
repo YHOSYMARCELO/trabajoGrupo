@@ -2,6 +2,7 @@ package zoo;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,6 +32,7 @@ public class Main {
 			System.out.println("Opcion no validad");
 			// TODO: handle exception
 		}
+		escribirFichero(animal);
 	}
 	
 	public static void addAnimal(ArrayList<Animal> anim)  {
@@ -107,9 +109,23 @@ public class Main {
 			System.out.println("Incorrecta entrada de datos");
 		}
 	}
-	
-	public static void crearFichero() {
-		FileWriter fw= new FileWriter("animales.csv"); 
-		BufferedWriter bw= new BuferredWriter(fw); 
+	public static void escribirFichero(ArrayList<Animal> animal) {
+		FileWriter fw= null; 
+		BufferedWriter bw= null; 
+		try {
+			fw=new FileWriter("animal.csv");
+			bw=new BufferedWriter(fw);
+			for(Animal anima:animal) {
+			bw.write(anima.toFichero());
+			bw.newLine();
+			}
+			bw.close(); 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 	}
+	
+	
 }
