@@ -24,5 +24,8 @@ public class Perro extends Mamifero{
 	public String toString() {
 		return "Raza"+getRaza()+super.toString();
 	} 
+	public String toFichero() {
+		return super.toFichero()+";"+getRaza(); 
+	}
 	
 }

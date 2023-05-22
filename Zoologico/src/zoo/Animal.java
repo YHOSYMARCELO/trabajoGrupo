@@ -56,6 +56,10 @@ public class Animal {
 	public String toString() {
 		return "Id"+getId() + "[habitat=" + habitat + ", comida=" + comida + ", edad=" + edad + "]";
 	}
+	
+	public String toFichero() {
+		return getId()+";"+getHabitat()+";"+getComida()+";"+getEdad(); 
+	}
 
 	
 	
