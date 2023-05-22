@@ -1,0 +1,28 @@
+package zoo;
+
+public class Mamifero extends Animal {
+	private int gestacion;
+	
+	public Mamifero() {
+		super(); 
+	}
+
+	public Mamifero( String habitat, String comida, int edad, int gestacion ) {
+		super(Habitat.valueOf(habitat),comida, edad);
+		this.gestacion = gestacion;
+	}
+
+	public int getGestacion() {
+		return gestacion;
+	}
+
+	public void setGestacion(int gestacion) {
+		this.gestacion = gestacion;
+	}
+
+	@Override
+	public String toString() {
+		return "gestacion"+getGestacion()+super.toString();
+	} 
+	
+}
