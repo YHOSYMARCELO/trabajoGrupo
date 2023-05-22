@@ -8,8 +8,8 @@ public class Gato extends Mamifero {
 		pedigri=true; 
 	}
 
-	public Gato(String habitat, String comida, int edad, int gestacion, boolean pedigri) {
-		super(habitat, comida, edad, gestacion);
+	public Gato(int id, String habitat, String comida, int edad, int gestacion, boolean pedigri) {
+		super(id, habitat, comida, edad, gestacion);
 		this.pedigri = pedigri;
 	}
 

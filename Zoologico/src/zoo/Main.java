@@ -2,6 +2,7 @@ package zoo;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class Main {
 				switch(opcion) {
 				case 1 : addAnimal(animal); break;
 				case 2 : listarAnimal(animal); break; 
-				//case 3:  deleteAnimal(); 
+				case 3:  deleteAnimal(animal); break; 
 				case 4: System.out.println("Adios");break;
 				default:System.out.println("No existe la opcion");break; 
 				}
@@ -37,10 +38,12 @@ public class Main {
 		BufferedReader bis= new BufferedReader(isr);
 		Gato gato= new Gato();
 		String habitat, comida , tipoAnimal, raza, pedigri;
-		int edad, gestacion;
+		int edad, gestacion, id;
 		double cantidadComida;
 		
 		try {
+			System.out.println("Ingresauna id");
+			id=Integer.parseInt(bis.readLine()); 
 			System.out.println("Ingresa el habitat TIERRA, MAR O AEREO");
 			habitat=bis.readLine().toUpperCase();
 			System.out.println("que tipo de comida?");
@@ -54,23 +57,23 @@ public class Main {
 			if(tipoAnimal.equalsIgnoreCase("perro")) {
 				System.out.println("Que raza es?");
 				raza=bis.readLine();
-				anim.add(new Perro(habitat, comida, edad, gestacion, raza));
+				anim.add(new Perro(id, habitat, comida, edad, gestacion, raza));
 			}
 			else if(tipoAnimal.equalsIgnoreCase("gato")) {
 				System.out.println("Tiene pedigri? SI o NO ");
 				pedigri=bis.readLine(); 
 				if(pedigri.equalsIgnoreCase("si")) {
-					 anim.add(new Gato(habitat, comida, edad, gestacion, true));
+					 anim.add(new Gato(id, habitat, comida, edad, gestacion, true));
 					
 				}
 				else if(pedigri.equalsIgnoreCase("no")) {
-					anim.add(new Gato(habitat, comida, edad, gestacion, false));
+					anim.add(new Gato(id, habitat, comida, edad, gestacion, false));
 				}
 			}
 			else if(tipoAnimal.equalsIgnoreCase("delfin")) {
 				System.out.println("Ingresa la cantidad de comida que consume");
 				cantidadComida=Double.parseDouble(bis.readLine()); 
-				anim.add(new Delfin(habitat, comida, edad, gestacion, cantidadComida)); 
+				anim.add(new Delfin(id, habitat, comida, edad, gestacion, cantidadComida)); 
 			}
 			
 			
@@ -85,5 +88,28 @@ public class Main {
 			System.out.println(anima);
 		}
 		
+	}
+	/*El nuevo usuario creará una rama llamada delete */
+	public static void deleteAnimal(ArrayList<Animal> animal) {
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader bis= new BufferedReader(isr);
+		System.out.println("QUE ID DESEAS ELIMINAR?");
+		try {
+			int id=Integer.parseInt(bis.readLine());
+			for (int i=0; i<animal.size(); i++) {
+				if(animal.get(i).getId()==id) {
+					animal.remove(i); 
+					System.out.println("animal eliminado");
+				}
+			}
+		} catch (NumberFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Incorrecta entrada de datos");
+		}
+	}
+	
+	public static void crearFichero() {
+		FileWriter fw= new FileWriter("animales.csv"); 
+		BufferedWriter bw= new BuferredWriter(fw); 
 	}
 }
