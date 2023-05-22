@@ -2,6 +2,7 @@ package zoo;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -105,5 +106,10 @@ public class Main {
 			// TODO Auto-generated catch block
 			System.out.println("Incorrecta entrada de datos");
 		}
+	}
+	
+	public static void crearFichero() {
+		FileWriter fw= new FileWriter("animales.csv"); 
+		BufferedWriter bw= new BuferredWriter(fw); 
 	}
 }
