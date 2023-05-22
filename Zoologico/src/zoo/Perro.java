@@ -7,8 +7,8 @@ public class Perro extends Mamifero{
 		super(); 
 		raza="sin definir"; 
 	}
-	public Perro(String habitat, String comida, int edad, int gestacion, String raza) {
-		super(habitat, comida, edad, gestacion);
+	public Perro(int id, String habitat, String comida, int edad, int gestacion, String raza) {
+		super(id,habitat, comida, edad, gestacion);
 		this.raza = raza;
 	}
 

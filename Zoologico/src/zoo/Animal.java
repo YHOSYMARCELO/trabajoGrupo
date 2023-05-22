@@ -1,7 +1,7 @@
 package zoo;
 
 public class Animal {
-	 
+	private int id; 
 	private Habitat habitat;
 	private String comida; 
 	private int edad; 
@@ -13,15 +13,23 @@ public class Animal {
 		edad=0;
 	}
 	
-	public Animal( Habitat habitat, String comida,int edad) {
+	public Animal( int id,Habitat habitat, String comida,int edad) {
 		
-		
+		this.id=id;
 		this.habitat = habitat;
 		this.comida = comida;
 		this.edad=edad;
 	}
 
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
@@ -46,7 +54,7 @@ public class Animal {
 
 	@Override
 	public String toString() {
-		return "Animal [habitat=" + habitat + ", comida=" + comida + ", edad=" + edad + "]";
+		return "Id"+getId() + "[habitat=" + habitat + ", comida=" + comida + ", edad=" + edad + "]";
 	}
 
 	

@@ -7,8 +7,8 @@ public class Delfin extends Mamifero{
 		cantidadComida=0.0; 
 	}
 
-	public Delfin(String habitat, String comida, int edad, int gestacion, double cantidadComida) {
-		super(habitat, comida, edad, gestacion);
+	public Delfin(int id, String habitat, String comida, int edad, int gestacion, double cantidadComida) {
+		super(id, habitat, comida, edad, gestacion);
 		this.cantidadComida = cantidadComida;
 	}
 
